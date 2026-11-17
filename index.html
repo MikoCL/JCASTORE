@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Multicuenta - Mercado Libre Chile</title>
+    <!-- Tailwind CSS CDN para estilos rápidos y profesionales -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased min-h-screen flex flex-col md:flex-row">
+
+    <!-- Sidebar de Navegación -->
+    <aside class="w-full md:w-64 bg-slate-900 text-slate-300 flex flex-col justify-between border-r border-slate-800 p-6">
+        <div>
+            <div class="flex items-center gap-3 pb-6 border-b border-slate-800 mb-6">
+                <div class="w-8 h-8 rounded-lg bg-amber-400 flex items-center justify-center font-bold text-slate-950">
+                    ML
+                </div>
+                <span class="font-bold text-lg text-white tracking-wide">ERP Pro</span>
+            </div>
+            <nav class="space-y-1">
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-blue-600 text-white font-medium text-sm">
+                    📊 Dashboard
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 text-slate-300 font-medium text-sm transition">
+                    📦 Inventario Maestro
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-800 text-slate-300 font-medium text-sm transition">
+                    🚚 Centro de Despachos
+                </a>
+            </nav>
+        </div>
+        <div class="pt-6 border-t border-slate-800 text-xs text-slate-500">
+            Integrado con Mercado Libre API v2
+        </div>
+    </aside>
+
+    <!-- Contenido Principal -->
+    <main class="flex-1 p-6 md:p-8 max-w-7xl mx-auto w-full overflow-y-auto">
+        <!-- Cabecera -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+            <div>
+                <h1 class="text-2xl font-bold tracking-tight text-slate-900">Torre de Control Operativa</h1>
+                <p class="text-sm text-slate-500 mt-1">Monitoreo en tiempo real de ventas, inventario y despachos multicuenta.</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <select class="bg-white border border-slate-300 text-slate-700 text-sm rounded-xl px-4 py-2.5 shadow-sm focus:outline-none">
+                    <option value="all">🌐 Todas las Cuentas</option>
+                    <option value="account_1">🇨🇱 Tienda Oficial Chile</option>
+                    <option value="account_2">⚡ Outlet Principal</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- KPIs Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
+                <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Ventas Hoy</p>
+                <h3 class="text-2xl font-bold text-slate-900 mt-1">$1.450.000</h3>
+                <span class="text-xs text-emerald-600 font-medium mt-1 inline-block">📈 +12% vs ayer</span>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
+                <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Por Despachar Hoy</p>
+                <h3 class="text-2xl font-bold text-slate-900 mt-1">34 Órdenes</h3>
+                <span class="text-xs text-amber-600 font-medium mt-1 inline-block">⏰ Corte 14:00 hrs</span>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
+                <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Stock Crítico</p>
+                <h3 class="text-2xl font-bold text-rose-600 mt-1">3 SKUs</h3>
+                <span class="text-xs text-rose-500 font-medium mt-1 inline-block">⚠️ Requiere reposición</span>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
+                <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Cuentas Activas</p>
+                <h3 class="text-2xl font-bold text-slate-900 mt-1">2 / 2</h3>
+                <span class="text-xs text-emerald-600 font-medium mt-1 inline-block">🟢 Sincronizadas</span>
+            </div>
+        </div>
+
+        <!-- Tabla de Inventario Rápido -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <div class="p-5 border-b border-slate-200 font-bold text-slate-800">
+                📦 Estado Reciente de Inventario Maestro
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-slate-200 text-xs font-semibold text-slate-500 uppercase bg-slate-50">
+                            <th class="p-4">SKU Maestro</th>
+                            <th class="p-4">Producto</th>
+                            <th class="p-4 text-center">Físico</th>
+                            <th class="p-4 text-center">Reservado</th>
+                            <th class="p-4 text-center">Disponible</th>
+                            <th class="p-4">Cuentas Publicadas</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-sm">
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-4 font-mono font-semibold text-blue-600">TECH-PRO-01</td>
+                            <td class="p-4 font-medium text-slate-900">Audífono Inalámbrico ANC Bluetooth</td>
+                            <td class="p-4 text-center text-slate-700">50</td>
+                            <td class="p-4 text-center font-semibold text-amber-600">4</td>
+                            <td class="p-4 text-center font-bold text-emerald-600">46</td>
+                            <td class="p-4">
+                                <span class="px-2.5 py-1 bg-slate-100 border text-slate-700 rounded-lg text-xs font-medium">Tienda Chile</span>
+                                <span class="px-2.5 py-1 bg-slate-100 border text-slate-700 rounded-lg text-xs font-medium ml-1">Outlet</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-4 font-mono font-semibold text-blue-600">HOME-LIG-05</td>
+                            <td class="p-4 font-medium text-slate-900">Ampolleta Smart RGB E27 Wi-Fi</td>
+                            <td class="p-4 text-center text-slate-700">12</td>
+                            <td class="p-4 text-center font-semibold text-amber-600">5</td>
+                            <td class="p-4 text-center font-bold text-emerald-600">7</td>
+                            <td class="p-4">
+                                <span class="px-2.5 py-1 bg-slate-100 border text-slate-700 rounded-lg text-xs font-medium">Tienda Chile</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
